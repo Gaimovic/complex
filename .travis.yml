@@ -6,7 +6,7 @@ before_install:
   - docker build -t gaimovic/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run -e CI=true gaimovic/react-test npm test
+  - docker run -e CI=true gaimovic/react-test npm run test
 
 after_success:
   - docker build -t gaimovic/multi-client ./client
