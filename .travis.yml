@@ -13,3 +13,12 @@ after_success:
   - docker build -t gaimovic/multi-nginx ./nginx
   - docker build -t gaimovic/multi-server ./server
   - docker build -t gaimovic/multi-worker ./worker
+
+  # Log in to docker CLI
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-s
+
+  # Take those images and push to docker hub
+  - docker push gaimovic/multi-client
+  - docker push gaimovic/multi-nginx
+  - docker push gaimovic/multi-server
+  - docker push gaimovic/multi-worker
