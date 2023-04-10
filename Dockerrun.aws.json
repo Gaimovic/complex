@@ -23,7 +23,7 @@
             "memory": 128
         },
         {
-            "name": "ngimx",
+            "name": "nginx",
             "image": "gaimovic/multi-nginx",
             "esential": true,
             "portMappings": [
