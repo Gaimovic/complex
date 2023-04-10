@@ -1,0 +1,35 @@
+{
+    "AWSEBDockerrunVersion": 2,
+    "containerDefinitions": [
+        {
+            "name": "client",
+            "image": "gaimovic/multi-client",
+            "hostname": "client",
+            "esential": false
+        },
+        {
+            "name": "server",
+            "image": "gaimovic/multi-server",
+            "hostname": "api",
+            "esential": false
+        },
+        {
+            "name": "worker",
+            "image": "gaimovic/multi-worker",
+            "hostname": "worker",
+            "esential": false
+        },
+        {
+            "name": "ngimx",
+            "image": "gaimovic/multi-nginx",
+            "esential": true,
+            "portMappings": [
+                {
+                    "hostPort": 80,
+                    "containerPort": 80
+                }
+            ],
+            "links": ["clent", "server"]
+        }
+    ]
+}
